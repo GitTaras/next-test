@@ -6,7 +6,7 @@ import {TPost} from "../common/types";
 
 async function getAllPosts () {
     try {
-        const res = await fetch(`${process.env.NEXT_PUBLIC_VERCEL_URL}/api/posts/comments/count`);
+        const res = await fetch(`${process.env.VERCEL_URL}/api/posts/comments/count`);
         if(!res.ok) {
             console.log('failed');
             throw new Error('Failed to fetch data');

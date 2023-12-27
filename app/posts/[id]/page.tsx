@@ -6,7 +6,7 @@ import {TPost, TComment} from '../../common/types';
 
 async function getComments(id:string) {
     try {
-        const res = await fetch(`${process.env.NEXT_PUBLIC_VERCEL_URL}/api/posts/${id}/comments`);
+        const res = await fetch(`${process.env.VERCEL_URL}/api/posts/${id}/comments`);
         if (!res.ok) {
             console.log('failed');
             throw new Error('Failed to fetch data');
@@ -19,7 +19,7 @@ async function getComments(id:string) {
 
 async function getPost(id:string) {
     try {
-        const res = await fetch(`${process.env.NEXT_PUBLIC_VERCEL_URL}/api/posts/${id}`);
+        const res = await fetch(`${process.env.VERCEL_URL}/api/posts/${id}`);
         if (!res.ok) {
             console.log('failed');
             throw new Error('Failed to fetch data');
