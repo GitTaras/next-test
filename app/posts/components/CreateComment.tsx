@@ -2,6 +2,7 @@
 
 import React, { useState, FormEvent } from 'react'
 import {TComment} from "../../common/types";
+import {getBaseDomain} from "../../common/utils";
 
 
 export default function CreateComment({post_id, onSuccess = () => {}}: {post_id: string, onSuccess: (comment:TComment) => void}) {
@@ -15,7 +16,7 @@ export default function CreateComment({post_id, onSuccess = () => {}}: {post_id:
 
         try {
             const formData = new FormData(event.currentTarget);
-            const response = await fetch(`/api/posts/${post_id}/comments`, {
+            const response = await fetch(`${getBaseDomain()}/api/posts/${post_id}/comments`, {
                 method: 'POST',
                 body: formData,
             });

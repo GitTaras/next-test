@@ -3,10 +3,11 @@ import Link from 'next/link';
 import {useEffect, useState} from 'react';
 import CreateComment from "../components/CreateComment";
 import {TPost, TComment} from '../../common/types';
+import {getBaseDomain} from "../../common/utils";
 
 async function getComments(id:string) {
     try {
-        const res = await fetch(`/api/posts/${id}/comments`);
+        const res = await fetch(`${getBaseDomain()}/api/posts/${id}/comments`);
         if (!res.ok) {
             console.log('failed');
             throw new Error('Failed to fetch data');
@@ -19,7 +20,7 @@ async function getComments(id:string) {
 
 async function getPost(id:string) {
     try {
-        const res = await fetch(`/api/posts/${id}`);
+        const res = await fetch(`${getBaseDomain()}/api/posts/${id}`);
         if (!res.ok) {
             console.log('failed');
             throw new Error('Failed to fetch data');
@@ -54,9 +55,6 @@ export default function Post({params: {id}}: { params: { id: string } }) {
 
     return (
         <>
-            <nav className="m-5">
-                <Link href="/posts" className="text-blue-500 font-medium hover:underline active:underline">Posts list</Link>
-            </nav>
             <main className='flex flex-col items-center max-w-5xl mx-auto'>
                 {!post ? <div>Loading...</div> :
                     <>

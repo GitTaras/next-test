@@ -3,10 +3,11 @@ import Link from 'next/link'
 import {useEffect, useState} from 'react';
 import CreatePost from "./components/CreatePost";
 import {TPost} from "../common/types";
+import {getBaseDomain} from "../common/utils";
 
 async function getAllPosts () {
     try {
-        const res = await fetch(`/api/posts/comments/count`);
+        const res = await fetch(`${getBaseDomain()}/api/posts/comments/count`);
         if(!res.ok) {
             console.log('failed');
             throw new Error('Failed to fetch data');

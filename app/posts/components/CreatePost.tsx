@@ -2,6 +2,7 @@
 import React, { useState, FormEvent, Fragment } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import {TPost} from "../../common/types";
+import {getBaseDomain} from "../../common/utils";
 
 interface ICreatePostProps {
     isOpen: boolean,
@@ -20,7 +21,7 @@ export default function CreatePost({isOpen= false, closeModal=() => {}, onSucces
 
         try {
             const formData = new FormData(event.currentTarget);
-            const response = await fetch('/api/posts', {
+            const response = await fetch(`${getBaseDomain()}/api/posts`, {
                 method: 'POST',
                 body: formData,
             })
