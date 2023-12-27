@@ -2,9 +2,6 @@ import {Pool, ClientConfig} from "pg";
 
 let params: ClientConfig = {};
 
-console.log('server db', process.env.NEXT_PUBLIC_PGSQL_STRING);
-console.log('server mapbox', process.env.NEXT_PUBLIC_MAPBOX_TOKEN);
-
 if (process.env.NEXT_PUBLIC_PGSQL_STRING) {
     params.connectionString = process.env.NEXT_PUBLIC_PGSQL_STRING;
 } else {
