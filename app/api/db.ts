@@ -2,14 +2,14 @@ import {Pool, ClientConfig} from "pg";
 
 let params: ClientConfig = {};
 
-if (process.env.PGSQL_STRING) {
-    params.connectionString = process.env.PGSQL_STRING;
+if (process.env.NEXT_PUBLIC_PGSQL_STRING) {
+    params.connectionString = process.env.NEXT_PUBLIC_PGSQL_STRING;
 } else {
-    params.user = process.env.PGSQL_USER;
-    params.password = process.env.PGSQL_PASSWORD;
-    params.host = process.env.PGSQL_HOST;
-    params.port = Number(process.env.PGSQL_PORT);
-    params.database = process.env.PGSQL_DATABASE
+    params.user = process.env.NEXT_PUBLIC_USER;
+    params.password = process.env.NEXT_PUBLIC_PASSWORD;
+    params.host = process.env.NEXT_PUBLIC_HOST;
+    params.port = Number(process.env.NEXT_PUBLIC_PORT);
+    params.database = process.env.NEXT_PUBLIC_DATABASE
 }
 
 
